@@ -1,0 +1,122 @@
+.container {
+  display: flex;
+  padding: 30px;
+
+  // 左要素
+  .snippet-left {
+    max-width: 35vw;
+    width: 100%;
+    padding-right: 30px;
+
+    //言語絞り込み
+    .comp-select-snippet {
+      .lay-select-language-form {
+        margin-top: 10px;
+        border-bottom: #2E2F30 solid 1px;
+        display: flex;
+
+        .obj-selected_language {
+        }
+
+        .obj-icon-row-arrow {
+          margin-left: auto;
+
+          &:after {
+            display: inline-block;
+            content: "";
+            height: 25px;
+            width: 25px;
+            background-image: url(image-path("arrow_drop_down.svg"));
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+          }
+        }
+      }
+    }
+
+    //スニペットタイトル一覧
+    .comp-snippet-title-list {
+      margin-top: 60px;
+
+      .comp-snippet-title {
+        margin-top: 15px;
+
+        .lay-snippet-title {
+          line-height: 16px;
+          border-bottom: #707070 solid 1px;
+          padding-bottom: 10px; /* 内容と線との間隔量 */
+        }
+      }
+    }
+  }
+
+  // 右半分
+  .snippet-right {
+    max-width: 65vw;
+    width: 100%;
+
+
+    //スニペット検索
+    .lay-search-snippet {
+      display: flex;
+
+      .comp-snippet-search-form {
+        margin-left: 20px;
+
+        .obj-snippet-search_form {
+          margin-left: 10px;
+          border-bottom: #707070 solid 1px;
+        }
+      }
+    }
+
+    //スニペットカードリスト
+    .lay-snippet-card-list {
+      padding-top: 64px;
+
+      //スニペットカード
+      .lay-snippet-card {
+        box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+        padding: 20px;
+        border-radius: 5px;
+        height: 260px;
+        width: 100%;
+
+        .obj-snippet-title {
+          font-size: 24px;
+          font-weight: bold;
+        }
+
+        .obj-snippet-contents {
+          margin-top: 10px;
+
+          height: 125px;
+        }
+
+        .lay-snippet-option {
+          margin-top: 20px;
+          display: flex;
+
+          .lay-snippet-card-btn {
+
+            .obj-snippet-card-edit {
+            }
+
+            .obj-snippet-card-delete {
+              margin-left: 10px;
+
+            }
+          }
+
+          .obj-snippet-card-top {
+            margin-left: auto;
+            cursor: pointer;
+            color: #004BB1;
+          }
+        }
+      }
+    }
+  }
+
+}

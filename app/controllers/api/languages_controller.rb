@@ -1,8 +1,8 @@
-class Api::SnippetsController <ActionController::Base
-  
+class Api::LanguagesController <ActionController::Base
+
   def index
-    snippets = Snippet.all
-    render json: snippets, methods: :language
+    languages = Language.all
+    render json: languages
   end
 
 
@@ -21,5 +21,6 @@ class Api::SnippetsController <ActionController::Base
   private
 
   def snippet_params
+
   end
 end
