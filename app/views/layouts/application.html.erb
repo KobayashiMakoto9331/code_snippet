@@ -18,21 +18,39 @@
 
 <v-app id="app">
   <!--スニペットタイトルリスト-->
-  <div class="container" v-for="snippet in this.allSnippet" :key="snippet.id">
+  <div class="container" @click="closeLanguageDropMenu()">
     <div class="snippet-left">
       <!--言語絞り込み-->
-      <div class="comp-select-snippet" v-for="language in this.allLanguage" :key="language.id">
+      <div class="comp-select-snippet">
         <div><p class="obj-middle-title">言語を選択</p></div>
-        <div class="lay-select-language-form">
-          <div class="obj-selected_language">選択して下さい</div>
+        <div class="lay-select-language-form"
+             @click.stop="handleLanguageDropMenu">
+          <div class="obj-selected_language"
+               v-model="selectedLanguage">{{selectedLanguage}}</div>
           <div class="obj-icon-row-arrow"></div>
+          <!--ドロップメニュー-->
+          <transition name="drop">
+            <span v-if="isOpenDropDown" class="lay-modal-dropdown-menu">
+            <ul>
+              <li v-for="language in this.filterLanguage"
+                  @click="selectFilterLanguage(language)"
+              >
+                {{ language }}
+              </li>
+            </ul>
+          </span>
+          </transition>
         </div>
       </div>
       <!--スニペットタイトル一覧-->
       <div class="comp-snippet-title-list">
         <p class="obj-middle-title">ショートカットリスト</p>
-        <div class="comp-snippet-title">
-          <div class="lay-snippet-title">
+        <div class="comp-snippet-title"
+             v-for="snippet in this.allSnippet"
+             :key="snippet.id"
+             >
+          <div class="lay-snippet-title"
+               @click="scrollToSnippet(snippet.id)">
             <span>【{{ snippet.language }}】</span>
             <span>{{ snippet.title }}</span>
           </div>
@@ -45,7 +63,8 @@
       <!--スニペット検索-->
       <div class="lay-search-snippet">
         <div>
-          <a class="obj-new-snippet blue-btn">Snippetを作成する</a>
+          <a class="obj-new-snippet blue-btn"
+             @click="handleShowSnippetCreateModal">Snippetを作成する</a>
         </div>
         <div class="comp-snippet-search-form">
           <a class="obj-middle-title">言語を検索</a>
@@ -55,26 +74,66 @@
       <!--スニペットカード一覧-->
       <div class="lay-snippet-card-list">
         <!--スニペットカード 以下繰り返して表示する-->
-        <div class="lay-snippet-card">
+        <div class="lay-snippet-card"
+             v-for="snippet in this.allSnippet"
+             :key="snippet.id"
+             :id = "snippet.id">
           <!--タイトル-->
           <p class="obj-snippet-title">【{{ snippet.language }}】{{ snippet.title }}</p>
           <!--コンテンツ-->
-          <p class="obj-snippet-contents">{{ snippet.contents }}</p>
+          <p class="obj-snippet-contents obj-common-title">{{ snippet.contents }}</p>
           <!--ボタン-->
           <div class="lay-snippet-option">
             <div class="lay-snippet-card-btn">
-              <a class="obj-snippet-card-edit red-btn">編集</a>
-              <a class="obj-snippet-card-delete blue-btn">削除</a>
+              <a class="obj-snippet-card-edit blue-btn"
+                 @click="handleShowSnippetEditModal(snippet)">
+                編集</a>
+              <a class="obj-snippet-card-delete red-btn"
+                 @click="handleShowSnippetDeleteConfirmModal(snippet.id)">
+                削除</a>
             </div>
 
-            <a class="obj-snippet-card-top">トップに戻る</a>
+            <a class="obj-snippet-card-top"
+            @click="scrollToTop">トップに戻る</a>
           </div>
         </div>
 
       </div>
 
     </div>
+
+    <!--スニペット作成モーダル-->
+    <transition name="fade">
+      <snippet-create-modal
+        v-if="isVisibleSnippetCreateModal"
+        :languages="this.allLanguage"
+        @close-snippet-create-modal="handleCloseSnippetCreateModal()"
+        @fetch-snippet="fetchSnippet()"/>
+    </transition>
+
+    <!--スニペット編集モーダル-->
+    <transition name="fade">
+      <snippet-edit-modal
+        v-if="isVisibleSnippetEditModal"
+        :languages="this.allLanguage"
+        :snippet="this.editSnippet"
+        @close-snippet-edit-modal="handleCloseSnippetEditModal()"
+        @fetch-snippet="fetchSnippet()"/>
+    </transition>
+
+    <!--スニペット削除確認モーダル-->
+    <transition name="fade">
+      <snippet-delete-confirm-modal
+        v-if="isVisibleSnippetDeleteConfirmModal"
+        :snippet_id="this.deleteSnippetId"
+        @close-snippet-delte-confirm-modal="handleCloseSnippetDeleteConfirmModal()"
+        @handle-delete-snippet="handleDeleteSnippet"
+        />
+    </transition>
+
   </div>
+
 </v-app>
+
 </body>
 </html>

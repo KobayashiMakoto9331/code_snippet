@@ -14,6 +14,7 @@
         margin-top: 10px;
         border-bottom: #2E2F30 solid 1px;
         display: flex;
+        cursor: pointer;
 
         .obj-selected_language {
         }
@@ -32,6 +33,28 @@
             background-size: contain;
           }
         }
+
+        .lay-modal-dropdown-menu {
+          z-index: 10;
+          position: absolute;
+          top: 102px;
+          left: 30px;
+          width: calc(35vw - 30px);
+          padding-top: 10px;
+          background-color: #F7F7F7;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, .6);
+
+          li {
+            list-style: none;
+            cursor: pointer;
+            padding-left: 10px;
+
+            &:hover {
+              background-color: #BBBBBB;
+            }
+          }
+        }
+
       }
     }
 
@@ -40,12 +63,16 @@
       margin-top: 60px;
 
       .comp-snippet-title {
-        margin-top: 15px;
+        margin-top: 5px;
 
         .lay-snippet-title {
           line-height: 16px;
           border-bottom: #707070 solid 1px;
-          padding-bottom: 10px; /* 内容と線との間隔量 */
+          cursor: pointer;
+          padding: 10px 0; /* 内容と線との間隔量 */
+          &:hover {
+            background-color: #BBBBBB;
+          }
         }
       }
     }
@@ -82,6 +109,7 @@
         border-radius: 5px;
         height: 260px;
         width: 100%;
+        margin-top: 30px;
 
         .obj-snippet-title {
           font-size: 24px;
@@ -113,6 +141,10 @@
             margin-left: auto;
             cursor: pointer;
             color: #004BB1;
+
+            &:hover {
+              text-decoration: underline;
+            }
           }
         }
       }

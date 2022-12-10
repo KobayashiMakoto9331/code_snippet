@@ -1,0 +1,83 @@
+.comp-modal-wrapper {
+
+  // モーダルの背景
+  .obj-modal-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(89, 89, 89, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+  }
+
+  // モーダルの本体
+  .comp-modal-body {
+    // 中央よせ
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 70%;
+    max-width: 600px;
+    padding: 10px 30px 25px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .6);
+
+    //モーダルのタイトル
+    .lay-modal-title {
+
+    }
+
+    // モーダルアイテム（言語、タイトル、コンテンツなど）
+    .comp-modal-snippet-item {
+      .lay-modal-snippet-item {
+        padding-top: 30px;
+
+        // ドロップダウンメニュー
+        .lay-modal-dropdown-menu {
+          z-index: 100;
+          position: absolute;
+          top: 150px;
+          left: 40px;
+          padding: 10px;
+          background-color: #F7F7F7;
+          box-shadow: 0 0 10px rgba(0, 0, 0, .6);
+          border-radius: 5px;
+
+          li {
+            list-style: none;
+            cursor: pointer;
+          }
+        }
+
+        .obj-modal-item {
+          margin-top: 10px;
+          padding-left: 10px;
+          display: block;
+          width: 100%;
+        }
+
+        .content {
+          border: 1px solid #CDD6DD;
+          padding: 10px;
+        }
+      }
+    }
+
+    // オプションボタン
+    .comp-modal-snippet-option {
+      .lay-modal-snippet-option {
+        margin-top: 30px;
+        text-align: right;
+
+        .cancel {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}
