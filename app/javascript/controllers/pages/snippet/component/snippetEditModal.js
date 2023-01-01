@@ -85,8 +85,6 @@ const snippetEditModal = {
         },
     created() {
             // 選択言語の初期設定 登録情報を参照する
-            console.log('=========create')
-        console.log(this.snippet)
             let language = this.languages.filter(e => e.id == this.snippet.languages_id);
 
             if(language[0]){
@@ -102,7 +100,7 @@ const snippetEditModal = {
         },
         // スニペット作成
         handleEditSnippet() {
-            Axios.post("update_snippet", this.snippet)
+            Axios.post("update_snippet", {'snippet': this.snippet})
                 .then(res => {
                     this.handleCloseSnippetEditModal();
                     this.$emit("fetch-snippet");

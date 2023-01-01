@@ -1,7 +1,5 @@
-import Axios from "../../../../plugins/axios";
-
 const snippetDeleteConfirmModal = {
-    props: ['snippet_id'],
+    props: [],
     template: `
       <div class="comp-modal-wrapper">
       <!--背景-->
@@ -38,16 +36,17 @@ const snippetDeleteConfirmModal = {
     data() {
     },
     created() {
+        console.log(this.snippet_id)
     },
 
     methods: {
         handleCloseSnippetDeleteConfirmModal() {
             this.$emit("close-snippet-delte-confirm-modal")
         },
-        // スニペット作成
+        // スニペット削除
         handleDeleteSnippet() {
             this.handleCloseSnippetDeleteConfirmModal();
-            this.$emit("handle-delete-snippet", this.snippet_id);
+            this.$emit("handle-delete-snippet");
         },
     },
 

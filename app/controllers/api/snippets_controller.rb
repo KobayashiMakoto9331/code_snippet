@@ -1,19 +1,17 @@
 class Api::SnippetsController <ActionController::Base
   protect_from_forgery with: :null_session
+  wrap_parameters format: []
 
   def index
-    snippets = Snippet.all
+    snippets = Snippet.all.order(sort: :asc)
     render json: snippets, methods: :language
   end
 
   def create
     snippet = Snippet.new(snippet_params)
-
     if snippet.save
-      pp '保存した'
     else
-      pp '保存に失敗'
-      pp snippet.errors
+      snippet.errors
     end
   end
 
@@ -25,9 +23,17 @@ class Api::SnippetsController <ActionController::Base
     snippet.update!(snippet_params)
   end
 
+  # 全てのSnippetのsortを更新
+  def update_sort
+    all_snippet_params.each_with_index do |t,i|
+      snippet = Snippet.find_by(id: t[:id])
+      snippet.update!( sort: i )
+    end
+    render json: {result: "ok"}
+  end
+
   def delete
-    snippet_id = params[:snippet_id]
-    snippet = Snippet.find_by(id: snippet_id)
+    snippet = Snippet.find_by(id: snippet_id_params)
     if snippet.present?
       snippet.destroy
     end
@@ -35,7 +41,20 @@ class Api::SnippetsController <ActionController::Base
 
   private
 
+  # snippetを作成、更新するために使用
   def snippet_params
     params.require(:snippet).permit(:id, :title, :contents, :languages_id)
+  end
+
+  # 更新削除で使用
+  def snippet_id_params
+    params.require(:snippet_id)
+  end
+
+  # snippetのsort順を更新するために使用
+  def all_snippet_params
+    params.require(:_json).map do |param|
+      param.permit(:id)
+    end
   end
 end

@@ -1,7 +1,8 @@
 import Axios from "../../../../plugins/axios";
 
 const snippetCreateModal = {
-    props: ['languages'], template: `
+  props: ['languages'],
+  template: `
     <div class="comp-modal-wrapper">
     <!--背景-->
     <div class="obj-modal-bg"
@@ -74,52 +75,52 @@ const snippetCreateModal = {
       </div>
     </div>
     </div>
-    `,
+  `,
 
-    data() {
-        return {
-            snippet: {
-                title: '', contents: '', languages_id: ''
-            },
-            selected_language: {
-                id: '',
-                language: '',
-            },
-            isOpenDropDown: false
-        }
-        },
-    created() {
-        // 選択言語の初期設定
-        console.log('============create')
-        this.selected_language = this.languages[0]
-        this.snippet.languages_id = this.languages[0].id
+  data() {
+    return {
+      snippet: {
+        title: '', contents: '', languages_id: ''
+      },
+      selected_language: {
+        id: '',
+        language: '',
+      },
+      isOpenDropDown: false
+    }
+  },
+  created() {
+    // 選択言語の初期設定
+    console.log('============create')
+    this.selected_language = this.languages[0]
+    this.snippet.languages_id = this.languages[0].id
+  },
+  methods: {
+    handleCloseSnippetCreateModal() {
+      this.$emit("close-snippet-create-modal")
     },
-    methods: {
-        handleCloseSnippetCreateModal() {
-            this.$emit("close-snippet-create-modal")
-        },
-        // スニペット作成
-        handleCreateSnippet() {
-            Axios.post("create_snippet", this.snippet)
-                .then(res => {
-                    this.handleCloseSnippetCreateModal();
-                    this.$emit("fetch-snippet");
-                });
-        },
-        // ドロップダウンを開く
-        openLanguageDropMenu() {
-            this.isOpenDropDown = true
-        }, // ドロップダウンを閉じる
-        closeLanguageDropMenu() {
-            this.isOpenDropDown = false
-        }, // 登録する言語を選択
-        selectLanguage(language) {
-            this.selected_language = language
-            // 更新対象の言語設定
-            this.snippet.languages_id = language.id
-            this.closeLanguageDropMenu()
-        },
+    // スニペット作成
+    handleCreateSnippet() {
+      Axios.post("create_snippet", {'snippet': this.snippet})
+        .then(res => {
+          this.handleCloseSnippetCreateModal();
+          this.$emit("fetch-snippet");
+        });
     },
+    // ドロップダウンを開く
+    openLanguageDropMenu() {
+      this.isOpenDropDown = true
+    }, // ドロップダウンを閉じる
+    closeLanguageDropMenu() {
+      this.isOpenDropDown = false
+    }, // 登録する言語を選択
+    selectLanguage(language) {
+      this.selected_language = language
+      // 更新対象の言語設定
+      this.snippet.languages_id = language.id
+      this.closeLanguageDropMenu()
+    },
+  },
 
 }
 

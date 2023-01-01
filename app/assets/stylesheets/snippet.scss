@@ -37,7 +37,7 @@
         .lay-modal-dropdown-menu {
           z-index: 10;
           position: absolute;
-          top: 102px;
+          top: 172px;
           left: 30px;
           width: calc(35vw - 30px);
           padding-top: 10px;
@@ -88,22 +88,38 @@
     .lay-search-snippet {
       display: flex;
 
-      .comp-snippet-search-form {
-        margin-left: 20px;
+      .lay-new-snippet {
+        min-width: 222px;
+      }
 
-        .obj-snippet-search_form {
+      .lay-snippet-search-form {
+        margin-left: 20px;
+        width: 100%;
+        display: flex;
+
+        .obj-snippet-search-title {
+          min-width: 100px;
+        }
+
+        .obj-snippet-search_area {
+          width: 100%;
           margin-left: 10px;
           border-bottom: #707070 solid 1px;
+
+          input:focus {
+            outline: none;
+            width: 100%;
+          }
         }
       }
     }
 
     //スニペットカードリスト
     .lay-snippet-card-list {
-      padding-top: 64px;
+      padding-top: 10px;
 
       //スニペットカード
-      .lay-snippet-card {
+      .comp-snippet-card {
         box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
         padding: 20px;
         border-radius: 5px;
@@ -118,8 +134,8 @@
 
         .obj-snippet-contents {
           margin-top: 10px;
-
           height: 125px;
+          overflow: scroll;
         }
 
         .lay-snippet-option {

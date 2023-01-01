@@ -1,0 +1,33 @@
+.comp-header {
+  height: 70px;
+  background-color: #3F96FC;
+
+  .lay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 40px;
+    height: 100%;
+
+    .lay-header-left {
+      .obj-header-title {
+        color: #ffffff;
+      }
+    }
+
+    .lay-header-right {
+      ul {
+        display: flex;
+        text-decoration: none;
+
+        li {
+          margin-left: 40px;
+          list-style: none;
+        }
+      }
+
+    }
+  }
+
+
+}
