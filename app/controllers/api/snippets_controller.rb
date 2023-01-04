@@ -11,11 +11,8 @@ class Api::SnippetsController <ActionController::Base
     snippet = Snippet.new(snippet_params)
     if snippet.save
     else
-      snippet.errors
+      pp snippet.errors
     end
-  end
-
-  def edit
   end
 
   def update

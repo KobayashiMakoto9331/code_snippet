@@ -17,6 +17,11 @@
         cursor: pointer;
 
         .obj-selected_language {
+          input {
+            outline: none;
+            cursor: pointer;
+          }
+
         }
 
         .obj-icon-row-arrow {

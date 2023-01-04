@@ -8,8 +8,8 @@ const LeftComp = {
         <div><p class="obj-middle-title">言語を選択</p></div>
         <div class="lay-select-language-form"
              @click.stop="handleLanguageDropMenu">
-          <div class="obj-selected_language"
-               v-model="selectedLanguage">{{selectedLanguage}}</div>
+          <div class="obj-selected_language">
+            <input v-model="selectedLanguage"></div>
           <div class="obj-icon-row-arrow"></div>
           <!--ドロップメニュー-->
           <transition name="drop">
