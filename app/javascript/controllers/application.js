@@ -2,12 +2,12 @@ console.log('========BBBBB')
 import * as Vue from "vue";
 import SnippetMain from "./pages/snippet/index"
 import headerComp from "./feature/header_comp"
-// import router from "./../router/index"
+import router from "./../router/index"
 
 const App = Vue.createApp({
     template: `
         <headerComp/>
-        <SnippetMain/>
+        <router-view/>
     `,
 
     data() {
@@ -24,5 +24,5 @@ const App = Vue.createApp({
 
 });
 
-// App.use(router);
+App.use(router);
 App.mount("#app");

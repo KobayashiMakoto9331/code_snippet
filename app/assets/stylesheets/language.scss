@@ -1,0 +1,41 @@
+.comp-language {
+  margin: 0 auto;
+  max-width: 560px;
+  width: 100%;
+  margin-top: 30px;
+
+  .lay-registered-language {
+    .lay-register-language-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 33px;
+      border-bottom: black solid 1px;
+      margin-top: 20px;
+
+      .obj-registered-language{
+        margin-left: 15px;
+      }
+
+      .lay-table-item {
+        display: inline-block;
+
+        .obj-edit {
+          color: #004BB1;
+          margin-right: 30px;
+        }
+
+        .obj-delete {
+          color: #B10000;
+          margin-right: 30px;
+
+        }
+      }
+    }
+  }
+
+  .lay-btn {
+    text-align: center;
+    margin-top: 30px;
+  }
+}

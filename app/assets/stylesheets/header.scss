@@ -11,18 +11,31 @@
 
     .lay-header-left {
       .obj-header-title {
-        color: #ffffff;
+        a {
+          text-decoration: none;
+          color: #ffffff;
+
+          &:hover {
+            border-bottom: solid;
+          }
+        }
+
       }
     }
 
     .lay-header-right {
       ul {
         display: flex;
-        text-decoration: none;
-
         li {
-          margin-left: 40px;
           list-style: none;
+        }
+
+        a {
+          text-decoration: none;
+          margin-left: 40px;
+          li {
+            list-style: none;
+          }
         }
       }
 

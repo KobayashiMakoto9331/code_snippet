@@ -1,2 +1,2 @@
-import o from"./dist/vue.cjs.prod.js";export{default}from"./dist/vue.cjs.prod.js";import"@vue/compiler-dom";import"@vue/runtime-dom";import"@vue/shared";const e=o.__esModule,r=o.compile;export{e as __esModule,r as compile};
+import{initCustomFormatter as o,warn as e}from"@vue/runtime-dom";export*from"@vue/runtime-dom";function initDev(){o()}"production"!==process.env.NODE_ENV&&initDev();const compile=()=>{"production"!==process.env.NODE_ENV&&e('Runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".')};export{compile};
 
