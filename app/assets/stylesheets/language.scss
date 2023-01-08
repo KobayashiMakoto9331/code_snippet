@@ -20,6 +20,10 @@
       .lay-table-item {
         display: inline-block;
 
+        a {
+          cursor: pointer;
+        }
+
         .obj-edit {
           color: #004BB1;
           margin-right: 30px;

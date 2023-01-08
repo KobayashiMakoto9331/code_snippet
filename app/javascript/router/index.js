@@ -5,8 +5,6 @@ import SnippetIndex from "./../controllers/pages/snippet/index" //ルート先�
 import LanguageMain from "./../controllers/pages/language/index"
 import PasswordChangeMain from "./../controllers/pages/password_change/index"
 
-console.log('router')
-
 const routes = [{
   path: '/languages', name: 'languages', component: LanguageMain
 }, {

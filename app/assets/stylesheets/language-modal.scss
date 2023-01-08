@@ -1,0 +1,72 @@
+.comp-modal-wrapper {
+
+  // モーダルの背景
+  .obj-modal-bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(89, 89, 89, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+
+  }
+
+  // モーダルの本体
+  .comp-modal-body {
+    // 中央よせ
+    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 70%;
+    max-width: 600px;
+    padding: 10px 30px 25px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .6);
+
+    //モーダルのタイトル
+    .lay-modal-title {
+    }
+
+    // モーダルアイテム（言語、タイトル、コンテンツなど）
+    .comp-modal-language-item {
+      .lay-modal-language-item {
+        padding-top: 30px;
+
+        .obj-modal-item {
+          margin-top: 10px;
+          padding-left: 10px;
+          display: block;
+          width: 100%;
+          outline: none;
+        }
+
+        .lay-error-message {
+          height: 20px;
+
+          .obj-error-message {
+            padding-left: 10px;
+            font-size: 14px;
+            color: #B00100;
+            line-height: 20px;
+          }
+        }
+      }
+    }
+
+    // オプションボタン
+    .comp-modal-language-option {
+      .lay-modal-language-option {
+        margin-top: 30px;
+        text-align: right;
+
+        .cancel {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}

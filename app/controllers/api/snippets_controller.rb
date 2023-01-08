@@ -10,8 +10,9 @@ class Api::SnippetsController <ActionController::Base
   def create
     snippet = Snippet.new(snippet_params)
     if snippet.save
+      render(json: snippet)
     else
-      pp snippet.errors
+      raise
     end
   end
 

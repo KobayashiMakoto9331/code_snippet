@@ -28,6 +28,10 @@
         display: flex;
         li {
           list-style: none;
+          color: black;
+          &:hover {
+            border-bottom: solid 1px;
+          }
         }
 
         a {
