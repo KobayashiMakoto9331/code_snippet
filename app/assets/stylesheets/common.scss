@@ -7,7 +7,11 @@ pre {
 }
 
 code {
+}
 
+//inputの背景色がブラウザ保管で変えられないようにする
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
 }
 
 .obj-middle-title {

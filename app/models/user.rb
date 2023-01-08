@@ -3,8 +3,7 @@ class User < ApplicationRecord
     validates :mst_last_name
     validates :mst_first_name
   end
-  
-  validates :nickname, length: { maximum: 20 }
+
   validates :hashed_password, presence: true
   validates :email, presence: true
   

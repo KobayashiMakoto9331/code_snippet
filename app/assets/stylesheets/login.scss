@@ -1,0 +1,35 @@
+.comp-login {
+  margin: 0 auto;
+  max-width: 560px;
+  width: 100%;
+  margin-top: 60px;
+
+  .lay-login {
+    .lay-form{
+      margin-top: 30px;
+      margin-bottom: 40px;
+      .obj-form{
+        width: 100%;
+        height: 50px;
+        padding-left: 10px;
+        outline: none;
+        border: #98A6B5 solid 1px;
+      }
+      & input{
+        background-color: transparent;
+      }
+      .lay-error-message{
+        height: 20px;
+      }
+    }
+    .lay-btn {
+      text-align: center;
+      margin-top: 60px;
+      .obj-login-btn {
+        padding: 15px 40px;
+        font-weight: bold;
+        font-size: 16px;
+      }
+    }
+  }
+}

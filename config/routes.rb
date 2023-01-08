@@ -15,5 +15,12 @@ Rails.application.routes.draw do
     post 'update_snippet' => 'snippets#update'
     post 'update_snippet_index' => 'snippets#update_sort'
     post 'delete_snippet' => 'snippets#delete'
+
+    # ユーザー
+    get 'users' => 'users#index'
+    post 'users' => 'users#index'
+    post 'create_user' => 'users#create'
+    post 'update_user' => 'users#update'
+    post 'delete_user' => 'users#delete'
   end
 end
