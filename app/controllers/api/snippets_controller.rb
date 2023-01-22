@@ -1,4 +1,4 @@
-class Api::SnippetsController <ActionController::Base
+class Api::SnippetsController < ApplicationController
   protect_from_forgery with: :null_session
   wrap_parameters format: []
 

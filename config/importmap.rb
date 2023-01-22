@@ -12,7 +12,7 @@ pin "axios", to: "https://ga.jspm.io/npm:axios@0.21.4/index.js"
 pin "#lib/adapters/http.js", to: "https://ga.jspm.io/npm:axios@0.21.4/lib/adapters/xhr.js"
 pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.0-beta.24/nodelibs/browser/process-production.js"
 
-# ./bin/importmap pin vue-router --download
+# ./bin/importmap pin vue-router/dist/vue-router.esm-browser.js --download
 pin "vue-router", to: "vue-router--dist--vue-router.esm-browser.js.js" # @4.1.6
 pin "@vue/devtools-api", to: "@vue--devtools-api.js" # @6.4.5
 pin "@vue/reactivity", to: "@vue--reactivity.js" # @3.2.45
@@ -27,3 +27,4 @@ pin "@vue/compiler-core", to: "@vue--compiler-core.js" # @3.2.45
 pin "@vue/compiler-dom", to: "@vue--compiler-dom.js" # @3.2.45
 
 pin_all_from "app/javascript/controllers", under: "controllers"
+

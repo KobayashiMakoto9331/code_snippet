@@ -1,4 +1,4 @@
-class Api::LanguagesController <ActionController::Base
+class Api::LanguagesController < ApplicationController
   protect_from_forgery with: :null_session
   wrap_parameters format: []
 
