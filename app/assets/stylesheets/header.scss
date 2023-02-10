@@ -29,6 +29,7 @@
         li {
           list-style: none;
           color: black;
+          cursor: pointer;
           &:hover {
             border-bottom: solid 1px;
           }

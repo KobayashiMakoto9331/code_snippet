@@ -145,9 +145,9 @@ const registerMain = {
       Object.keys(this.form_attributes).forEach(function (key) {
         const error_message = this.Validation(key, this.form_attributes[key].value)
         if (error_message === true) {
-          this.form_attributes[key].error_message = ''
+          this.form_attributes[key].error_message = '';
         } else {
-          this.form_attributes[key].error_message = error_message
+          this.form_attributes[key].error_message = error_message;
         }
       }, this)
     },

@@ -22,5 +22,12 @@ Rails.application.routes.draw do
     post 'create_user' => 'users#create'
     post 'update_user' => 'users#update'
     post 'delete_user' => 'users#delete'
+
+    # ログイン
+    post 'login' => 'sessions#create'
+    post 'logout' => 'sessions#delete'
+
+    # 認証済みユーザー取得
+    get 'fetch_auth_user' => 'sessions#fetch_auth_user'
   end
 end

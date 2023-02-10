@@ -3,6 +3,7 @@ pin "application", preload: true
 
 # ./bin/importmap pin "vue/dist/vue.esm-browser.js" --download
 pin "vue", to: "vue--dist--vue.esm-browser.js.js"
+pin "vuex", to: "vuex.esm-browser.js"
 
 # ./bin/importmap pin marked --download
 pin "marked", to: "marked.js" # @3.0.8

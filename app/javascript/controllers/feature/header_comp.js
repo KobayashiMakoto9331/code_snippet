@@ -1,3 +1,5 @@
+import { mapActions } from "vuex";
+
 const headerComp = {
   template:
     `
@@ -9,25 +11,27 @@ const headerComp = {
           </div>
           <div class="lay-header-right">
             <ul>
-              <li>小林 誠</li>
+              <li>山田 太郎</li>
               <router-link :to="{ name: 'languages'}"><li class="obj-link-item">言語</li></router-link>
               <router-link :to="{ name: 'password_change'}"><li class="obj-link-item">パスワード変更</li></router-link>
-              <a href="#"><li class="obj-link-item">ログアウト</li></a>
+              <a><li class="obj-link-item" @click="logout">ログアウト</li></a>
             </ul>
           </div>
         </div>
       </div>
     `,
-  data() {
-    return {}
-  },
-  components: {},
+  methods: {
+    ...mapActions([
+      `logoutUser`
+    ]),
 
-  created() {
-
-  },
-
-  methods: {}
+    logout(){
+      // ログアウト
+      this.logoutUser();
+      // 画面遷移
+      this.$router.push({ name: 'login' })
+    },
+  }
 }
 
 export default headerComp

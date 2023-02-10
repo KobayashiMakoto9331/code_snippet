@@ -3,6 +3,7 @@ import * as Vue from "vue";
 import SnippetMain from "./pages/snippet/index"
 import headerComp from "./feature/header_comp"
 import router from "./../router/index"
+import Vuex from './../store/index'
 
 const App = Vue.createApp({
     template: `
@@ -19,10 +20,9 @@ const App = Vue.createApp({
         headerComp
     },
 
-    created() {
-    },
-
 });
 
 App.use(router);
+
+App.use(Vuex);
 App.mount("#app");
